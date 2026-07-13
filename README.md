@@ -13,3 +13,13 @@ Dieses Repo beinhaltet sämtlichen Quellcode zu allen Demos sowie alle relevante
 
 - [Einführung in die Programmierung](java1.md)
 - [Fortgeschrittene Programmierung](java2.md)
+
+## Tutorium Repo
+- [Theoriesemester 1: Tutorium-WWIBE225](https://github.com/JSiggelkow/Tutorium-WWIBE225)
+  
+## !!Prüfungsrelevant!!:
+<span style="color:grey">
+Prüfungsrelevante Themen hier aufführen:</span>
+
+- Thema 1
+- Thema 2
