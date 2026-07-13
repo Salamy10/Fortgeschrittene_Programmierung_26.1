@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.samuel</groupId>
+  <artifactId>Fortgeschrittene_Programmierung_26.1</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Fortgeschrittene Programmierung - 26.1</name>
+  <description>Fortgeschrittene Programmierung - Sommer-Theorie-Semester 2026</description>
+  
+   <properties>
+      <!-- Java-Version -->
+      <maven.compiler.release>26</maven.compiler.release>
+      <!-- Codierung -->
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+   </properties>
+   
+   <dependencies>
+      <!-- Lombok -->
+      <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>1.18.38</version>
+      </dependency>
+   </dependencies>
+   
+</project>
