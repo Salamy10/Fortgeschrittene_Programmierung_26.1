@@ -5,7 +5,7 @@ package model;
  */
 public class AlreadyPluggedInException extends Exception {
 
-   private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;	//nur für Fehler - nicht wichtig
 
    /**
     * Constructs the exception with a default message.
