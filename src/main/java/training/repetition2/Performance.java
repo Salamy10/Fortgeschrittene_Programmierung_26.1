@@ -8,4 +8,8 @@ public record Performance(String bandName, LocalTime startTime, MusicGenre genre
 		return startTime.compareTo(o.startTime);		
 	}
 
+	public Object getGenre() {
+		return genre;
+	}
+
 }
