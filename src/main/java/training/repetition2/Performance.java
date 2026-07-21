@@ -1,4 +1,4 @@
-package training.repetition2.A1;
+package training.repetition2;
 
 import java.time.LocalTime;
 
