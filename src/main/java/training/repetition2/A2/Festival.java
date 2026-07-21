@@ -1,5 +1,5 @@
 package training.repetition2.A2;
 
-public record Festival { 
+public record Festival() { 
 
 }
