@@ -21,5 +21,6 @@ Dieses Repo beinhaltet sämtlichen Quellcode zu allen Demos sowie alle relevante
 <span style="color:grey">
 Prüfungsrelevante Themen hier aufführen:</span>
 
-- Thema 1
-- Thema 2
+- Mapping/Collect?
+- GroupByYear, vielleicht sogar 1:1
+- ...
