@@ -4,16 +4,6 @@ Willkommen im Repository für den Kurs **Fortgeschrittene Programmierung**. Hier
 
 ---
 
-## 🔗 Wichtige Links & Ressourcen
-
-| Ressource | Beschreibung | Link |
-| :--- | :--- | :--- |
-| 📜 **Script** | Vorlesungsskript & Kursinhalte (Java 2) | [Script öffnen](https://github.com/appenmaier/java_wwibe225/blob/main/java2.md) |
-| 📚 **Dokumentation** | Interaktive Übungs- und Prüfungsaufgaben | [Dokumentation öffnen](https://jappuccini.github.io/java-docs/production/exam-exercises/exam-exercises-java2/) |
-| 🛠️ **Dokumentation Git** | Source Code & Repository der Dokumentation | [Git Repo öffnen](https://github.com/jappuccini/java-docs) |
-
----
-
 <table>
   <thead>
     <tr>
