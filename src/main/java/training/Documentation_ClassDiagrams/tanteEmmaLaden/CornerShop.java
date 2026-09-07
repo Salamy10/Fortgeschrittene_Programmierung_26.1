@@ -10,7 +10,7 @@ public record CornerShop(String name, Map<Goods, Integer> store) {
 	}
 	
 	public void buyGoods(Goods goods, int amount) {
-		
+		store.merge(goods, amount, Integer::sum);
 	}
 	
 	public void sellGoods(Goods goods, int amount) {
