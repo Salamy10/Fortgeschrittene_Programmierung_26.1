@@ -84,6 +84,22 @@ Verhindert `NullPointerException` beim Sortieren von Listen mit `null`-Werten:
 Comparator<String> safeStringComp = Comparator.nullsFirst(String::compareTo);
 ```
 
+### E. Klassische Implementierung als eigene Klasse (Klausurrelevant!)
+Wenn in der Aufgabenstellung kein Lambda oder Factory-Methoden erlaubt sind, wird eine eigene Klasse erstellt:
+
+```java
+public class RatingDescendingComparator implements Comparator<Movie> {
+    @Override
+    public int compare(Movie m1, Movie m2) {
+        // Parameter-Tausch (m2 zuerst) bewirkt eine absteigende Sortierung!
+        return Double.compare(m2.rating(), m1.rating());
+    }
+}
+
+// Nutzung:
+Collections.sort(movies, new RatingDescendingComparator());
+```
+
 ---
 
 ## 5. Anwendung in der Praxis
