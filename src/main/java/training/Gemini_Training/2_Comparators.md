@@ -19,7 +19,11 @@ Java bietet zwei Schnittstellen zum Vergleichen und Sortieren von Objekten. Beid
 
 Beide Schnittstellen arbeiten nach demselben dreiwertigen Logik-Schema:
 
-$$	ext{Rückgabewert} =  egin{cases} < 0 & 	ext{wenn } o_1 	ext{ kleiner ist als } o_2 	ext{ (bzw. } 	ext{this} < 	ext{other}) \ 0 & 	ext{wenn } o_1 	ext{ und } o_2 	ext{ sortiertechnisch gleich sind} \ > 0 & 	ext{wenn } o_1 	ext{ größer ist als } o_2 	ext{ (bzw. } 	ext{this} > 	ext{other}) \end{cases}$$
+* **`< 0` (negativer Wert):** `o1` ist kleiner als `o2` (bzw. `this` < `other`) $
+ightarrow$ `o1` wird **vor** `o2` einsortiert.
+* **`0` (Null):** `o1` und `o2` sind sortiertechnisch gleichwertig.
+* **`> 0` (positiver Wert):** `o1` ist größer als `o2` (bzw. `this` > `other`) $
+ightarrow$ `o1` wird **nach** `o2` einsortiert.
 
 > **⚠️ Wichtige Regel für numerische Vergleiche:**
 > NIEMALS Werte mit Subtraktion vergleichen (`this.age - other.age`), da dies bei negativen Zahlen oder großen Werten zu einem **Integer Overflow** führen kann!
@@ -45,11 +49,25 @@ public record Student(String name, int matrikelnummer) implements Comparable<Stu
 
 ---
 
-## 4. `Comparator<T>` (Moderne Java-API)
+## 4. `Comparator<T>` (Moderne Java-API & Klassischer Weg)
 
-Seit Java 8 wird `Comparator` selten manuell ausprogrammiert, sondern über **statische Factory-Methoden** und **Methodenreferenzen** gebaut.
+### A. Klassische Implementierung als eigene Klasse (Klausurrelevant!)
+Wird genutzt, wenn in der Aufgabenstellung keine Lambdas oder Factory-Methoden erlaubt sind.
 
-### A. Grundlegende Komparatoren
+```java
+public class RatingDescendingComparator implements Comparator<Movie> {
+    @Override
+    public int compare(Movie m1, Movie m2) {
+        // Parameter-Tausch (m2 vor m1) bewirkt eine absteigende Sortierung!
+        return Double.compare(m2.rating(), m1.rating());
+    }
+}
+
+// Nutzung:
+Collections.sort(movies, new RatingDescendingComparator());
+```
+
+### B. Grundlegende Komparatoren (Java 8+ API)
 ```java
 // Nach Name (String / Objekte mit Comparable)
 Comparator<Student> byName = Comparator.comparing(Student::name);
@@ -59,13 +77,13 @@ Comparator<Student> byId = Comparator.comparingInt(Student::matrikelnummer);
 Comparator<Book> byPrice = Comparator.comparingDouble(Book::price);
 ```
 
-### B. Sortierreihenfolge umkehren (`reversed`)
+### C. Sortierreihenfolge umkehren (`reversed`)
 ```java
 // Sortiert absteigend nach Preis (teuerste zuerst)
 Comparator<Book> priceDesc = Comparator.comparingDouble(Book::price).reversed();
 ```
 
-### C. Verkettung von Komparatoren (`thenComparing`)
+### D. Verkettung von Komparatoren (`thenComparing`)
 Falls das erste Kriterium Gleichstand liefert, greift das zweite Kriterium (*Tie-Breaker*):
 
 ```java
@@ -76,28 +94,12 @@ Comparator<Person> complexOrder = Comparator
     .thenComparingInt(Person::age);
 ```
 
-### D. Null-Sicherheit (`nullsFirst` / `nullsLast`)
+### E. Null-Sicherheit (`nullsFirst` / `nullsLast`)
 Verhindert `NullPointerException` beim Sortieren von Listen mit `null`-Werten:
 
 ```java
 // Setzt alle null-Elemente an den Anfang der Liste
 Comparator<String> safeStringComp = Comparator.nullsFirst(String::compareTo);
-```
-
-### E. Klassische Implementierung als eigene Klasse (Klausurrelevant!)
-Wenn in der Aufgabenstellung kein Lambda oder Factory-Methoden erlaubt sind, wird eine eigene Klasse erstellt:
-
-```java
-public class RatingDescendingComparator implements Comparator<Movie> {
-    @Override
-    public int compare(Movie m1, Movie m2) {
-        // Parameter-Tausch (m2 zuerst) bewirkt eine absteigende Sortierung!
-        return Double.compare(m2.rating(), m1.rating());
-    }
-}
-
-// Nutzung:
-Collections.sort(movies, new RatingDescendingComparator());
 ```
 
 ---
