@@ -109,6 +109,9 @@ void testCalculateTotalPriceWithCsv(double basePrice, String customerId, double 
 * **Geschwindigkeit:** Keine langsamen Netzwerk- oder DB-Zugriffe im Unit Test.
 * **Kontrolle:** Simulation von Ausnahmesituationen (z. B. `DatabaseDownException`) ohne echten Ausfall.
 
+### Relevantes
+<img width="2003" height="1104" alt="image" src="https://github.com/user-attachments/assets/2512ed1e-7843-4d86-8e95-c12e55b13d87" />
+
 ### Core Annotationen
 ```java
 @ExtendWith(MockitoExtension.class) // Aktiviert Mockito in JUnit 5
